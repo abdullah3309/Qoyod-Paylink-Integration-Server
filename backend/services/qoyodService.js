@@ -480,6 +480,7 @@ class QoyodService {
       );
 
       // 5. Receipt Allocation
+      // invoice.total
       await this.allocateReceipt(
         receipt.id,
         "Invoice",

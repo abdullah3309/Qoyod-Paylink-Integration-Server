@@ -133,6 +133,34 @@ const dashboardRoutes = (express) => {
       res.status(500).json({ success: false, error: error.message });
     }
   });
+  // ===== LOG DISMISS ROUTE ======
+dash_router.put("/logs/dismiss/:transactionId", async (req, res) => {
+  const { transactionId } = req.params;
+
+  if (!transactionId) {
+    return res
+      .status(400)
+      .json({ success: false, error: "Transaction ID is required" });
+  }
+
+  try {
+    await SyncLog.update(
+      {
+        errorCode: null,
+        errorDetails: null,
+      },
+      {
+        where: { transactionId: transactionId },
+      }
+    );
+
+    res.json({ success: true, message: "Errors dismissed for transaction." }); // Arabic message in response can be added too.
+
+  } catch (error) {
+    console.error("Error dismissing errors:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
 
   return dash_router;
 }
