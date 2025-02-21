@@ -24,7 +24,7 @@ ENV PAYLINK_BASE_URL=https://restapi.paylink.sa
 ENV QOYOD_BASE_URL=https://www.qoyod.com/api/2.0
 
 # DATABASE
-ENV DATABASE_URL=postgresql://neondb_owner:npg_VUdZgzR1Dqv7@ep-fragrant-rice-a27uazz8-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require
+ENV DATABASE_URL=postgresql://neondb_owner:npg_o9qScLhtUP2X@ep-hidden-morning-a2znrqno-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require
 
 # TAX RATES PAYLINK
 ENV PAYLINK_TAX_MADA=0.01
