@@ -2,6 +2,9 @@
 const {
   Model
 } = require('sequelize');
+
+const { v4: uuidv4 } = require("uuid");
+
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
@@ -9,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: uuidv4,  // Automatically generates a unique ID
+      allowNull: false,
+      primaryKey: true,
+    },
     productName: DataTypes.STRING,
     teacherCommissionExpenseAccountId: DataTypes.INTEGER,
     teacherPercentageExpenseAccountId: DataTypes.INTEGER,
